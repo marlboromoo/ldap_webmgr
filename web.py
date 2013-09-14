@@ -37,12 +37,12 @@ def list_users(row=5):
     result = ldap_.list_user()
     ldap_.close()
     users, i = [], 0
-    for user in result:
-        dn, attrs = user
+    while i <= row:
+        if len(result) == 0:
+            break
+        dn, attrs = result.pop() 
         users.append(dict(rdn=dn.split(',')[0], dn=dn))
         i += 1
-        if i == row:
-            break
     return users
 
 @bottle.get('/_static/<filepath:path>')
