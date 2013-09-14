@@ -7,14 +7,14 @@ A simple management tool for LDAP server.
  / /__/ // / __ |/ ___/ |/ |/ / -_) _ \/ /|_/ / _ `/ __/
 /____/____/_/ |_/_/   |__/|__/\__/_.__/_/  /_/\_, /_/   
                                              /___/      
-
 ```
 
 ## Requirments 
  - Python
  - [Bottle] [1]
- - [uWSGI] [2] (option)
- - [nginx] [3] (option)
+ - [Python-LDAP] [2]
+ - [uWSGI] [3] (option)
+ - [nginx] [4] (option)
                                                                                 
 ## Install
 
@@ -33,7 +33,7 @@ python ./web.py
 #. ubuntu 12.04
 sudo su -
 apt-get install uwsgi uwsgi-plugin-python nginx 
-pip install bottle slimit
+pip install bottle python-ldap
 cd /var/www/
 git clone https://github.com/marlboromoo/ldap_webmgr.git
 cd ldap_webmgr 
@@ -51,7 +51,6 @@ ln -s /etc/nginx/sites-available/ldap_webmgr /etc/nginx/sites-enabled/
 ```
 cd /var/www/ldap_webmgr
 git pull
-rm -rf /tmp/ldap_webmgr_js/* #. clean JS cache files
 /etc/init.d/uwsgi restart
 ```
 ## TODO
@@ -64,7 +63,8 @@ Timothy.Lee a.k.a MarlboroMoo.
 Released under the [MIT License] [4].                                           
                                                                                 
   [1]: http://bottlepy.org "Bottle"
-  [2]: http://projects.unbit.it/uwsgi/ "uWSGI"
-  [3]: http://nginx.org/ "Nginx"
+  [2]: http://www.python-ldap.org/ "Python-LDAP"
+  [3]: http://projects.unbit.it/uwsgi/ "uWSGI"
+  [4]: http://nginx.org/ "Nginx"
   [4]: http://opensource.org/licenses/MIT "MIT License"
 
